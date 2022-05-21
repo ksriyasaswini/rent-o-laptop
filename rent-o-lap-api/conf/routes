@@ -1,0 +1,63 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET /hello                           controllers.HelloWorldController.helloWorld
+GET /hello/:name                     controllers.HelloWorldController.hello(name:String)
+GET /hello/sri                       controllers.HelloWorldController.hellosri
+GET /hellos/:name                    controllers.HelloWorldController.hellos(name:String,count:Integer?=0)
+
+POST /greeting                       controllers.HelloWorldController.greeting
+
+GET /me                              controllers.HelloWorldController.me
+
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+POST /getotp                        controllers.AuthenticationController.createauthentication()
+
+POST /signUp                        controllers.UserController.createUserDetails()
+POST /signIn                        controllers.UserController.signInUser()
+POST /signOut                       controllers.UserController.signOutUser()
+
+POST /updateUser                    controllers.UserController.updateUserDetails()
+POST /resetPassword                 controllers.UserController.resetPassword()
+POST /userDetails                   controllers.UserController.UserProfile()
+
+POST /device                        controllers.DeviceController.createDeviceDetails()
+
+
+POST /getDevice/:id                 controllers.DeviceController.getDeviceDetailsById(id:Integer)
+GET /getFilterDeviceDetails         controllers.DeviceController.getFilteredDeviceDetails()
+GET /getDeviceByBrand/:name         controllers.DeviceController.getDeviceDetailsByName(name:String)
+
+POST /updateDevice/:id              controllers.DeviceController.updateDeviceDetails(id:Integer)
+DELETE /deleteDevice/:id            controllers.DeviceController.deleteDeviceDetails(id:Integer)
+GET /getDevices                     controllers.DeviceController.getAllDevices()
+POST /getUserDevices                 controllers.DeviceController.getUserDevices()
+
+POST /image                         controllers.ImagesController.uploadImage()
+GET /image/:id                      controllers.ImagesController.downloadImage(id: String)
+DELETE /image                       controllers.ImagesController.deleteImageByUrl()
+
+POST /images                        controllers.ImageController.uploadImage()
+GET /images/:id                     controllers.ImageController.downloadImage(id: String)
+DELETE /images/:id                  controllers.ImageController.deleteImage(id: String)
+
+POST /postFeedback/                 controllers.FeedbackController.createFeedback()
+GET /getFeedbacks/:id               controllers.FeedbackController.getFeedbacks(id: Integer)
+GET /averageRating/:id              controllers.FeedbackController.getAveragerating(id: Integer)
+
+
+POST /createBooking                controllers.BookingsController.createBooking()
+POST /getUserBooking               controllers.BookingsController.getBookingsByUserID()
+POST /getDeviceBooking/:id         controllers.BookingsController.getBookingsByDeviceID(id: Integer)
+DELETE /deleteBooking/:id          controllers.BookingsController.deleteBooking(id: Integer)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file     controllers.Assets.versioned(path="/public", file: Asset)
